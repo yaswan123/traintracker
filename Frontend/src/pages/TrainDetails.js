@@ -10,16 +10,13 @@ function TrainDetails() {
         useState(null);
 
     useEffect(() => {
-        loadDetails();
-    }, []);
-
     const loadDetails = async () => {
-
-        const response =
-            await getTrainDetails(id);
-
+        const response = await getTrainDetails(id);
         setDetails(response.data);
     };
+
+    loadDetails();
+}, [id]);
 
     if (!details)
         return <h3>Loading...</h3>;
